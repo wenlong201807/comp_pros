@@ -1,0 +1,8 @@
+//项目地址
+window.gurl = {
+  AXIOS_TIMEOUT: 10000,
+  SERVICE_CONTEXT_PATH: 'http://192.168.100.223:10001/'
+  // SERVICE_CONTEXT_PATH:'http://192.168.100.90:10003/'
+}
+// const BASEURL = 'http://192.168.100.223:10001/'
+const BASEURL = 'http://192.168.100.217:10001/'

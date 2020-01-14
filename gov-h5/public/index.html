@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- 1、如果支持Google Chrome Frame：GCF，则使用GCF渲染；2、如果系统安装ie8或以上版本，则使用最高版本ie渲染；3、否则，这个设定可以忽略。 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <!-- 对视窗缩放等级进行限制，使其适应移动端屏幕大小 -->
+    <meta name="viewport" content="width=device-width, user-scalable=no , initial-scale=1">
+    <!-- 当把这个网页添加到主屏幕时的标题（仅限IOS） -->
+    <meta name="apple-mobile-web-app-title" content="电动汽车APP">
+    <!-- 添加到主屏幕后全屏显示 -->
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <!--手机拨号-->
+    <meta name="format-detection" content="telephone=yes" />
+    <!--加载高德地图js-->
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=5f49c59b2b919b9d469a7b7d811c361e">
+    </script>
+    <script type="text/javascript"
+      src="https://webapi.amap.com/maps?v=1.4.15&key=5f49c59b2b919b9d469a7b7d811c361e&plugin=AMap.MarkerClusterer">
+    </script>
+    <script src="https://webapi.amap.com/ui/1.0/main.js?v=1.0.11"></script>
+    <script src="https://cdn.bootcss.com/mui/3.7.1/js/mui.js"></script>
+    <meta name="referrer" content="no-referrer" /><!--页面头部添加-->
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>gov-h5</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but gov-h5 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+  <script>
+
+
+      mui.init({
+                swipeBack: false, //关闭右滑关闭功能(默认就是false)
+                keyEventBind: {
+                    backbutton: true //开启back按键监听( 默认就是true)
+                }
+      });
+        // //首页返回键处理
+        // //处理逻辑：1秒内，连续两次按返回键，则退出应用；
+        var first = null;
+       mui.back = function() {
+       //首次按键，提示 再按一次退出应用
+       if (!first) {
+            first = new Date().getTime(); //记录第一次按下回退键的时间
+            mui.toast("再按一次退出应用"); //给出提示
+          
+           setTimeout(function() {
+              //1s中后清除
+            first = null;
+             }, 1000);
+           } else {
+             if (new Date().getTime() - first < 1000) {
+             //如果两次按下的时间小于1s，
+             plus.runtime.quit(); //那么就退出app
+             }
+           }
+        };
+    
+  </script>
+</html>

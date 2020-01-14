@@ -1,0 +1,167 @@
+const path = require('path')
+const webpack = require('webpack')
+const createThemeColorReplacerPlugin = require('./config/plugin.config')
+
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
+
+/**
+ * check production or preview(pro.loacg.com only)
+ * @returns {boolean}
+ */
+function isProd () {
+  return process.env.NODE_ENV === 'production' || process.env.VUE_APP_PREVIEW === 'true'
+}
+
+const assetsCDN = {
+  css: [],
+  // https://unpkg.com/browse/vue@2.6.10/
+  js: [
+    '//unpkg.com/vue@2.6.10/dist/vue.min.js',
+    '//unpkg.com/vue-router@3.0.6/dist/vue-router.min.js',
+    '//unpkg.com/vuex@3.1.1/dist/vuex.min.js',
+    '//unpkg.com/axios@0.19.0/dist/axios.min.js'
+  ]
+}
+
+// webpack build externals
+const prodExternals = {
+  vue: 'Vue',
+  'vue-router': 'VueRouter',
+  vuex: 'Vuex',
+  axios: 'axios',
+  'AMap': 'AMap'
+}
+
+// vue.config.js
+const vueConfig = {
+  configureWebpack: {
+    // webpack plugins
+    plugins: [
+      // Ignore all locale files of moment.js
+      new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/)
+    ],
+    // if prod is on, add externals
+    externals: isProd() ? prodExternals : {
+      'AMap': 'AMap'
+    }
+    // externals: {
+    //   'AMap': 'AMap' // 高德地图配置
+    // }
+  },
+
+  chainWebpack: (config) => {
+    config.resolve.alias
+      .set('@$', resolve('src'))
+
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
+    svgRule
+      .oneOf('inline')
+      .resourceQuery(/inline/)
+      .use('vue-svg-icon-loader')
+      .loader('vue-svg-icon-loader')
+      .end()
+      .end()
+      .oneOf('external')
+      .use('file-loader')
+      .loader('file-loader')
+      .options({
+        name: 'assets/[name].[hash:8].[ext]'
+      })
+
+    // if prod is on
+    // assets require on cdn
+    if (isProd()) {
+      config.plugin('html').tap(args => {
+        args[0].cdn = assetsCDN
+        return args
+      })
+    }
+  },
+
+  css: {
+    loaderOptions: {
+      less: {
+        modifyVars: {
+          // less vars，customize ant design theme
+
+          // 'primary-color': '#F5222D',
+          // 'link-color': '#F5222D',
+          // 'border-radius-base': '4px'
+        },
+        javascriptEnabled: true
+      }
+    }
+  },
+
+  devServer: {
+    // development server port 8000
+    port: 8001,
+    proxy: {
+      '/oauthSally': {
+        // target: 'http://47.92.138.8:8098/',
+        target: 'http://47.92.138.8:8068/',
+        // target: 'http://47.92.138.8:11003/',
+        // target: 'http://192.168.100.223:8068/',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/oauthSally': '/'
+        }
+      },
+      '/upmsSally': {
+        // target: 'http://47.92.138.8:8088/',
+        // target: 'http://192.168.100.86:8088/',
+        target: 'http://47.92.138.8:8078/',
+        // target: 'http://47.92.138.8:11004/',
+        // target: 'http://192.168.100.223:10009/',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/upmsSally': '/'
+        }
+      },
+      '/flowableSally': {
+        target: 'http://47.92.138.8:8088/',
+        // target: 'http://192.168.100.86:8088/',
+        // target: 'http://192.168.100.200:10009/',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/flowableSally': '/'
+        }
+      },
+      '/gov': {
+        target: 'http://47.92.138.8:8088/',
+        // target: 'http://192.168.100.98:10001/',
+        // target: 'http://192.168.100.223:10001/',
+        // target: 'http://192.168.100.223:10006/',
+        // target: 'http://192.168.100.217:10001/',
+        // target: 'http://192.168.100.115:10001/',
+        changeOrigin: true,
+        ws: true,
+        pathRewrite: {
+          '^/gov': '/'
+        }
+      }
+    }
+  },
+
+  // disable source map in production
+  productionSourceMap: false,
+  lintOnSave: undefined,
+  // babel-loader no-ignore node_modules/*
+  transpileDependencies: []
+}
+
+// preview.pro.loacg.com only do not use in your production;
+// eslint-disable-next-line no-constant-condition
+if (true) {
+  /* !isProd() */
+  // add `ThemeColorReplacer` plugin to webpack plugins
+  vueConfig.configureWebpack.plugins.push(createThemeColorReplacerPlugin())
+}
+
+module.exports = vueConfig

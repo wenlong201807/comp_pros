@@ -1,0 +1,321 @@
+.main-content{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.main-content .editBody{
+
+}
+.main-content .editTop {
+    padding: 20px 0;
+    color: #000;
+}
+.main-content .editTop .confirmBtn{
+    text-align: right;
+    font-size: 16px;
+}
+.main-content .editTop .van-icon {
+    font-size: 16px;
+    font-weight: bold;
+}
+.main-content .editBody .editContent .title {
+
+}
+.main-content .editContent .editTip{
+    color: #999999;
+    font-size: 12px;
+}
+.main-content .editBody .editContent .van-cell{
+    padding: 10px 0px;
+}
+.main-content  .portraitPop .van-uploader__input-wrapper{
+    width: 100%;
+}
+.con-liu .van-nav-bar .van-icon, .con-liu .van-nav-bar .van-icon{
+    color: #000;
+}
+.con-liu .van-nav-bar__text,.con-liu .van-nav-bar__text{
+    color: #000;
+}
+.con-liu .loading-liu{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    box-sizing: content-box;
+    width: 1.8rem;
+    max-width: 70%;
+    min-height: 1.8rem;
+    padding: 0.32rem;
+    color: #fff;
+    font-size: 0.28rem;
+    line-height: 0.4rem;
+    white-space: pre-wrap;
+    text-align: center;
+    word-wrap: break-word;
+    background-color: rgba(50,50,51,.88);
+    border-radius: 0.08rem;
+    -webkit-transform: translate3d(-50%,-50%,0);
+    transform: translate3d(-50%,-50%,0);
+
+}
+.con-liu .main-content .van-cell--large .van-cell__title >span{
+  font-weight: bold;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.con-liu .main-content .head .van-cell__right-icon{
+ margin-top: 20px;
+}
+.con-liu{
+
+}
+.con-liu .common-top{
+    background: url("../assets/roleCar/carOpebg.png");
+    background-size: 100% 100%;
+}
+.con-liu .common-top h4{
+    margin: 0 20px;
+    padding: 20px 0;
+    color: #fff;
+    font-size: 18px;
+}
+.con-liu .count-data{
+    margin:0  10px;
+    background: #fff;
+    border-radius: 5px ;
+    box-shadow: 0px 0px 10px rgba( 0,0,0,.4) ;
+    padding: 20px 8px 0;
+}
+.con-liu .count-data .van-col span{
+    display: block;
+    line-height: 25px;
+    text-align: center;
+}
+.con-liu .count-data .van-col span:first-child{
+    color: #333333;
+    font-size: 16px;
+}
+.con-liu .count-data .van-col span:last-child{
+    color: #999999;
+    font-size: 12px;
+}
+.con-liu .count-data .van-col span:last-child a{
+    font-size: 16px;
+}
+.con-liu .count-data  .van-notice-bar{
+    border-top:1px solid #f4f4f4;
+    margin-top: 6px;
+    background-color: transparent;
+    color: #333;
+    padding: 0 60px 0 70px ;
+}
+.con-liu .count-data  .notice{
+    position: relative;
+}
+.con-liu .count-data   .notice-more{
+    position: absolute;
+    right: 10px;
+    top:0;
+    color: #999;
+    font-size: 14px;
+    line-height: 40px;
+    display: flex;
+    align-items: center;
+}
+.con-liu .count-data   .notice-icon{
+    position: absolute;
+    left: 10px;
+    top:10px;
+    width: 55px;
+    /*color: #999;*/
+    /*font-size: 14px;*/
+    /*line-height: 40px;*/
+    /*display: flex;*/
+    /*align-items: center;*/
+}
+.con-liu .count-data   .notice-icon img{
+    width: 100%;
+}
+.con-liu .common-title1{
+    text-align: center;
+    position: relative;
+}
+.con-liu .common-title1 span{
+    position: relative;
+}
+.con-liu .common-title1 span:before{
+     position: absolute;
+    width: 18px;
+    height: 2px;
+     background: #dddddd;
+     content: '';
+     display: block;
+     right: 100%;
+     top: 45%;
+     margin-right: 10px;
+ }
+.con-liu .common-title1 span:after{
+    position: absolute;
+    width: 18px;
+    height: 2px;
+    background: #dddddd;
+    content: '';
+    display: block;
+    left: 100%;
+    top: 45%;
+    margin-left: 10px;
+}
+.con-liu .basic-info{
+    padding: 0 10px 15px;
+    border-bottom: 10px solid #f4f4f4;
+}
+.con-liu .basic-info .van-row{
+    text-align: center;
+}
+.con-liu .basic-info .van-row img{
+    width: 65%;
+}
+.con-liu .basic-info .van-row p{
+    color: #333;
+    font-size: 15px;
+    margin: 0;
+}
+.con-liu .real-time-info{
+    border-bottom:10px solid #f4f4f4;
+}
+.con-liu .real-time-info .box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-top:1px solid #f4f4f4 ;
+}
+.con-liu .real-time-info .van-row .van-col:nth-child(2n-1){
+    border-right: 1px solid #f4f4f4 ;
+
+}
+.con-liu .real-time-info .box .left-icon{
+    width: 25%;
+}
+.con-liu .real-time-info .box .left-icon img{
+    width: 100%;
+    padding-right: 10px;
+}
+.con-liu .real-time-info .box .right-info{
+    width: 60%;
+    color: #333;
+    font-size: 15px;
+}
+.con-liu .real-time-info .box .right-info p{
+ margin: 0;
+}
+.con-liu .real-time-info .box .right-info p:nth-child(2){
+    color: #999;
+    font-size: 13px;
+    line-height: 25px;
+}
+.con-liu .real-time-info .box .right-info .value{
+    font-size: 18px;
+}
+.con-liu .real-time-info .box .right-info .per{
+    color: #333;
+    font-size: 12px;
+}
+.con-liu .count-info .van-col{
+    text-align: center;
+    padding-bottom: 20px;
+}
+.con-liu .count-info .van-col img{
+    width: 50%;
+}
+.con-liu .count-info .van-col p{
+    margin: 0;
+    font-size: 14px;
+    color: #333333;
+}
+.con-liu  .gov-tab  .van-tabs__wrap{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+}
+.con-liu  .gov-tab .van-tabs__content{
+    margin-bottom: 50px;
+}
+.con-liu  .gov-tab .van-tabs__line{
+    background-color: #333333;
+}
+.con-liu .topBack{
+    width: 100%;
+    height: 44px;
+    /*text-align: left;*/
+    background: white;
+    text-align: center;
+    line-height: 44px;
+}
+.con-liu .backButton{
+    background: url("../assets/login/back.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 18px 16px;
+    width: 52px;
+    height: 44px;
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top:0;
+}
+.con-liu .navTitle{
+    display: inline-block;
+    font-size: 17px;
+    font-weight: 600;
+    font-stretch: normal;
+    letter-spacing: 0;
+    color: #000000;
+}
+.con-liu .count-info-con .top{
+    background-color: #3a94fe;
+    background: url("../assets/roleGov/topBg.png");
+    background-size:100% 100% ;
+    margin: 10px 10px;
+    color: #fff;
+    border-radius: 10px;
+    padding: 14px ;
+}
+.con-liu .count-info-con .top h4{
+    margin: 0 0 10px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 25px;
+}
+.con-liu .count-info-con .top h4 img{
+    width: 18px;
+    vertical-align: text-bottom;
+}
+.con-liu .count-info-con .top .value{
+    margin: 0 ;
+    font-size: 12px;
+}
+.con-liu .count-info-con .top .value span{
+    font-size: 20px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+.con-liu .count-info-con .top .time{
+    margin: 30px 0 0;
+    font-size: 12px;
+}
